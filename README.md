@@ -9,6 +9,7 @@ PS:本脚本只用于Debian、Kali、~~Linux Mint~~ ,其他发行版请自行编
    2. `cd DailyLinux/`
    3. `chmod +x install.sh`
    4. `./install.sh`
+   5. 更新本脚本运行：`./upgrade.sh`
 
 > wiki:
   - https://github.com/YGoldking/DailyLinux/wiki/Document
