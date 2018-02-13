@@ -18,13 +18,14 @@ function inputx(){
 	 		;;
 	 		n)
 	 		#exit
-	 		./install
+	 		./install.sh
 	 		;;
 	 	esac
  	else
  		echo " "
  		sudo apt-get install fcitx -y
  		echo " "
+ 		inputx
  	fi
 }
 
