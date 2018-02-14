@@ -3,7 +3,7 @@
 #menu
 function menu(){
 	echo -e "---------------------------Programming-Tools menu------------------------"
-	echo -e "\t\t 【1】   Sublime Text(正在优化中.....)"
+	echo -e "\t\t 【1】   Sublime Text"
 	echo -e "\t\t 【2】   VIM(待更新)"
 	echo -e "\t\t 【3】   Atom(待更新)"
 	echo -e "\t\t 【4】   PyCharm(待更新)"

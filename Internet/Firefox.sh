@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Check if it is installed........."
-which firefox
+which firefox firefox-bin
 if [[ $? -eq 0 ]]; then
 	echo -e "Firefox  already installed........\t\033[32;40;1m【√】\033[0m"
 else
