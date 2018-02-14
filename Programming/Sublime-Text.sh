@@ -9,11 +9,11 @@ function inputx(){
 	 		y)
 	 		sudo cp -r ./x/subl-src/libsublime-imfix.so /opt/sublime_text/
 			#修改/usr/bin/subl
-			sudo sed -i 's/1,exec \/opt\/sublime_text\/sublime_text \"$@\"/LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text \"$@\"/' /usr/bin/subl
+			sudo sed -i 's/exec \/opt\/sublime_text\/sublime_text \"$@\"/LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text \"$@\"/' /usr/bin/subl
 			#修改/usr/share/applications/sublime_text.desktop
-			sudo sed -i 's/1,Exec=\/opt\/sublime_text\/sublime_text %F/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text %F\"/' /usr/share/applications/sublime_text.desktop
-			sudo sed -i 's/1,Exec=\/opt\/sublime_text\/sublime_text -n/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text -n\"/' /usr/share/applications/sublime_text.desktop
-			sudo sed -i 's/1,Exec=\/opt\/sublime_text\/sublime_text --command new_file/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text --command new_file\"/' /usr/share/applications/sublime_text.desktop
+			sudo sed -i 's/Exec=\/opt\/sublime_text\/sublime_text %F/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text %F\"/' /usr/share/applications/sublime_text.desktop
+			sudo sed -i 's/Exec=\/opt\/sublime_text\/sublime_text -n/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text -n\"/' /usr/share/applications/sublime_text.desktop
+			sudo sed -i 's/Exec=\/opt\/sublime_text\/sublime_text --command new_file/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text --command new_file\"/' /usr/share/applications/sublime_text.desktop
 	      	echo -e "Repair successfully  \t\033[32;40;1m【√】\033[0m"
 	 		;;
 	 		n)
