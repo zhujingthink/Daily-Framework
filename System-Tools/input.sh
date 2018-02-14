@@ -8,6 +8,7 @@ function sogouinstall(){
 	else
 		echo -e "Install the GPG key................................."
 		sudo cp -r ./x/sogou/keyrings/sogou-archive-keyring.gpg /usr/share/keyrings/
+		sudo cp -r ./x/sogou/keyrings/sogou-archive-keyring.gpg /etc/apt/trusted.gpg.d/
 		sudo sh -c 'echo "deb http://archive.ubuntukylin.com:10006/ubuntukylin xenial main"' | sudo tee /etc/apt/sources.list.d/sogoupinyin.list
 		echo 'Update apt sources and install Sublime Text..................................'
 		sudo apt-get update
