@@ -34,6 +34,7 @@ function hollywoodinstall(){
 function allinstall(){
 	sudo apt-get -y install htop
 	sudo apt-get -y install screenfetch
+	sudo apt-get -y install neofetch
 	sudo apt-get -y install sl
 	sudo apt-get -y install yes
 	sudo apt-get -y install fortune
@@ -59,6 +60,8 @@ function Smenu(){
 	echo -e "\t\t 【6】   Htop"
 	echo -e "\t\t 【7】   Google translate (translate-shell)"
 	echo -e "\t\t 【8】   Etcher"
+	echo -e "\t\t 【9】   shc"
+	echo -e "\t\t 【9】   fbi"
 	echo -e "\t\t \033[36;40;1m【0】\033[0m  \033[31;40;1m Return to the main menu\033[0m "
 	read -p "please enter[*]continue：" systemmenu
 	case $systemmenu in
@@ -92,6 +95,14 @@ function Smenu(){
 		;;
 		8)
 		./System-Tools/etcher.sh
+		Smenu
+		;;
+		8)
+		sudo apt-get install shc -y
+		Smenu
+		;;
+		9)
+		sudo apt-get install fbi -y
 		Smenu
 		;;
 		0)

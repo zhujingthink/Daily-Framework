@@ -70,6 +70,8 @@ function Videomenu(){
 	echo -e "\t\t 【4】   moc"
 	echo -e "\t\t 【5】   asciinema"
 	echo -e "\t\t 【6】   netease-cloud-music"
+	echo -e "\t\t 【7】   MPlayer"
+	echo -e "\t\t 【8】   Fbgs"
 	echo -e "\t\t \033[36;40;1m【0】\033[0m  \033[31;40;1m Return to the main menu\033[0m "
 	read -p "please enter[*]continue：" videomenu
 	case $videomenu in
@@ -96,6 +98,14 @@ function Videomenu(){
 		;;
 		6)
 		./Video/netease-cloud-music.sh
+		Videomenu
+		;;
+		7)
+		sudo apt-get install mplayer mplayer-doc mplayer-gui mplayer-skin-blue -y
+		Videomenu
+		;;
+		7)
+		sudo apt-get install fbgs -y
 		Videomenu
 		;;
 		0)
