@@ -258,7 +258,7 @@ echo -e "\t\t \033[36;40;1m【0】\033[0m  \033[31;40;1m Return to the main menu
 		git clone https://github.com/SublimeLinter/SublimeLinter-php.git ~/.config/sublime-text-3/Packages/SublimeLinter-php
 		sublpmenu
 		;;
-		All) #all
+		ALL) #all
 		Call
 		Fall
 		Aall
