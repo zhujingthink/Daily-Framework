@@ -4,9 +4,10 @@
 function menu(){
 	echo -e "---------------------------Programming-Tools menu------------------------"
 	echo -e "\t\t 【1】   Sublime Text"
-	echo -e "\t\t 【2】   VIM(待更新)"
-	echo -e "\t\t 【3】   Atom(待更新)"
-	echo -e "\t\t 【4】   PyCharm(待更新)"
+	echo -e "\t\t 【2】   VSCode(跟subl真他妈的像)"
+	echo -e "\t\t 【3】   VIM(待更新)"
+	echo -e "\t\t 【4】   Atom(待更新)"
+	echo -e "\t\t 【5】   PyCharm(待更新)"
 	echo -e "\t\t ----------------------------"
 	echo -e "\t\t 【1.1】   sublime 插件(待更新)"
 	echo -e "\t\t \033[36;40;1m【0】\033[0m  \033[31;40;1m Return to the main menu\033[0m "
@@ -16,7 +17,7 @@ function menu(){
 		./Programming/Sublime-Text.sh
 		;;
 		2)
-		echo "待更新。。。。。。"
+		./Programming/vscode.sh
 		;;
 		3)
 		echo "待更新。。。。。。"
