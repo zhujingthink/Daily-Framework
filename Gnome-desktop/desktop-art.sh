@@ -16,7 +16,7 @@ function menu(){
 	echo -e "\t\t 【3】   Gnome3 Themes"
 	echo -e "\t\t 【4】   gnome shell Expand"
 	echo -e "\t\t 【5】   GDM Themes(务必请先将图片放入~/ 目录并重命名为bg.jpg)"
-	echo -e "\t\t 【6】   GRUb Themes"
+	echo -e "\t\t 【6】   GRUb Themes(请提前把图片放入~/ 目录并重命名为grub.jpg)"
 	echo -e "\t\t 【7】   cairo-dock"
 	echo -e "\t\t \033[36;40;1m【0】\033[0m  \033[31;40;1m Return to the main menu\033[0m "
 	read -p "please enter[*]continue：" gnomemenu
