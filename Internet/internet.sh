@@ -5,6 +5,7 @@ function allinstall(){
 	./Internet/QQ.sh
 	sudo apt-get install telegram-desktop -y
 	./Internet/Shadowsocks-Qt5.sh
+	./Internet/electron-ssr.sh
 	./Internet/TeamViewer.sh
 	./Internet/Google-chrome.sh
 	./Internet/Firefox.sh
@@ -17,10 +18,11 @@ function Internetmenu(){
 	echo -e "\t\t 【2】   qq+Tim+d+w"
 	echo -e "\t\t 【3】   Telegram"
 	echo -e "\t\t 【4】   Shadowsocks-Qt5(推荐方案：ss-qt5+proxychains)"
-	echo -e "\t\t 【5】   TeamViewer"
-	echo -e "\t\t 【6】   Firefox"
-	echo -e "\t\t 【7】   Google chrome"
-	echo -e "\t\t 【8】   Google chrome + Firefox  扩展推荐"
+	echo -e "\t\t 【5】   electron-ssr(ssr客户端)"
+	echo -e "\t\t 【6】   TeamViewer"
+	echo -e "\t\t 【7】   Firefox"
+	echo -e "\t\t 【8】   Google chrome"
+	echo -e "\t\t 【9】   Google chrome + Firefox  扩展推荐"
 	echo -e "\t\t \033[36;40;1m【0】\033[0m  \033[31;40;1m Return to the main menu\033[0m "
 	read -p "please enter[*]continue：" netmenu
 	case $netmenu in
@@ -41,18 +43,22 @@ function Internetmenu(){
 		Internetmenu
 		;;
 		5)
-		./Internet/TeamViewer.sh
+		./Internet/electron-ssr.sh
 		Internetmenu
 		;;
 		6)
-		./Internet/Firefox.sh
+		./Internet/TeamViewer.sh
 		Internetmenu
 		;;
 		7)
-		./Internet/Google-chrome.sh
+		./Internet/Firefox.sh
 		Internetmenu
 		;;
 		8)
+		./Internet/Google-chrome.sh
+		Internetmenu
+		;;
+		9)
 		./Internet/Firefox-Plug.sh
 		Internetmenu
 		;;
