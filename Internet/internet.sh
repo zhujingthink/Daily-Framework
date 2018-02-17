@@ -22,7 +22,8 @@ function Internetmenu(){
 	echo -e "\t\t 【6】   TeamViewer"
 	echo -e "\t\t 【7】   Firefox"
 	echo -e "\t\t 【8】   Google chrome"
-	echo -e "\t\t 【9】   Google chrome + Firefox  扩展推荐"
+	echo -e "\t\t 【9】   Tor Browser"
+	echo -e "\t\t 【10】   Google chrome + Firefox  扩展推荐"
 	echo -e "\t\t \033[36;40;1m【0】\033[0m  \033[31;40;1m Return to the main menu\033[0m "
 	read -p "please enter[*]continue：" netmenu
 	case $netmenu in
@@ -59,6 +60,10 @@ function Internetmenu(){
 		Internetmenu
 		;;
 		9)
+		./Internet/tor-browser.sh
+		Internetmenu
+		;;
+		10)
 		./Internet/Firefox-Plug.sh
 		Internetmenu
 		;;
