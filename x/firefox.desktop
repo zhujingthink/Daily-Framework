@@ -2,7 +2,7 @@
 Name=Firefox
 Comment=firefox
 Exec=/opt/firefox/firefox
-Icon=/opt/firefox/browser/icons/mozicon128.png
+Icon=/opt/firefox/browser/chrome/icons/default/default128.png
 Terminal=false
 Type=Application
 Categories=Network;WebBrowser;
