@@ -6,6 +6,7 @@ PS:不仅仅是安装、后续还有更多功能.................
 
 > 演示：
 
+点击播放
 [![asciicast](menu.png)](https://asciinema.org/a/Sy6pgK8xzpOEseGDuKDnSvSHB)
    
 
