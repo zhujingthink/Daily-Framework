@@ -6,7 +6,7 @@ PS:不仅仅是安装、后续还有更多功能.................
 
 > 演示：
 
-[![asciicast](https://asciinema.org/a/Sy6pgK8xzpOEseGDuKDnSvSHB.png)](https://asciinema.org/a/Sy6pgK8xzpOEseGDuKDnSvSHB)
+[![asciicast](menu.png)](https://asciinema.org/a/Sy6pgK8xzpOEseGDuKDnSvSHB)
    
 
 > 后续开发计划:
