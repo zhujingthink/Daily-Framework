@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo apt-get install magic-wormhole magic-wormhole-transit-relay -y

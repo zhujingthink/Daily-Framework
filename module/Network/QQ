@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+# tim:deepin.com.qq.office 
+# deepin.com.baidu.pan        deepin.com.taobao.wangwang
+# deepin.com.foxmail          deepin.com.thunderspeed   
+# deepin.com.qq.im            deepin.com.wechat         
+# deepin.com.qq.im.light      deepin.com.wechat.devtools
+# deepin.com.qq.office        deepin.com.weixin.work 
+
+#wine QQ 
+function Wine-qq-light(){
+	echo "自己打包的deb没地方存放，各位自行下载吧............"
+	echo "请在 十秒 内复制链接："
+	echo "https://pan.baidu.com/s/1VCHOWIpXJhuf_P5MI8FVaw"
+	sleep 10
+}
+
+function deepin-qq(){
+	sudo dpkg --add-architecture i386
+	sudo cp -r ./public/deepin-key/etc/apt/sources.list.d/deepin.list /etc/apt/sources.list.d/
+	sudo cp -r ./public/deepin-key/etc/apt/trusted.gpg.d/deepin-archive-keyring.gpg /etc/apt/trusted.gpg.d/
+	sudo cp -r ./public/deepin-key/etc/apt/trusted.gpg.d/deepin-pools-keyring.gpg /etc/apt/trusted.gpg.d/
+	sudo cp -r ./public/deepin-key/usr/share/keyrings/deepin-archive-keyring.gpg /usr/share/keyrings/
+	sudo apt-get update && sudo apt-get install deepin.com.qq.im -y
+	sudo rm -rf /etc/apt/sources.list.d/deepin.list
+	sudo rm -rf /etc/apt/trusted.gpg.d/deepin-archive-keyring.gpg
+	sudo rm -rf /etc/apt/trusted.gpg.d/deepin-pools-keyring.gpg
+	sudo rm -rf /usr/share/keyrings/deepin-archive-keyring.gpg
+	echo "安装完成...................."
+}
+
+function deepin-qq-light(){
+	sudo dpkg --add-architecture i386
+	sudo cp -r ./public/deepin-key/etc/apt/sources.list.d/deepin.list /etc/apt/sources.list.d/
+	sudo cp -r ./public/deepin-key/etc/apt/trusted.gpg.d/deepin-archive-keyring.gpg /etc/apt/trusted.gpg.d/
+	sudo cp -r ./public/deepin-key/etc/apt/trusted.gpg.d/deepin-pools-keyring.gpg /etc/apt/trusted.gpg.d/
+	sudo cp -r ./public/deepin-key/usr/share/keyrings/deepin-archive-keyring.gpg /usr/share/keyrings/
+	sudo apt-get update && sudo apt-get install deepin.com.qq.im.light -y
+	sudo rm -rf /etc/apt/sources.list.d/deepin.list
+	sudo rm -rf /etc/apt/trusted.gpg.d/deepin-archive-keyring.gpg
+	sudo rm -rf /etc/apt/trusted.gpg.d/deepin-pools-keyring.gpg
+	sudo rm -rf /usr/share/keyrings/deepin-archive-keyring.gpg
+	echo "安装完成...................."
+}
+
+function qq(){
+	echo -e """
+	$xcyan 1)$xgreen ✔  QQ轻聊版(wine)	
+	$xcyan 2)$xgreen ✔  deepin-qq	
+	$xcyan 3)$xgreen ✔  deepin-qq-light		
+	$xcyan 0)$xred ✘  返回 ◀◀
+	"""
+	echo -n -e "${cyan}请选择版本 *) ：$red"
+	read -e qqinstall
+	case $qqinstall in
+		1 )
+		Wine-qq-light
+			;;
+		2 )
+		deepin-qq
+			;;
+		3 )
+		deepin-qq-light
+			;;
+		* )
+		echo " "
+			;;
+	esac
+}
+qq

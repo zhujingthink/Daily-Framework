@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+sudo apt-get -y install cmatrix
+
+	echo "Check if it is installed........."
+	which hollywood
+	if [[ $? -eq 0 ]]; then
+		echo -e "hollywood  already installed........\t\033[32;40;1m【√】\033[0m"
+		sleep 3
+	else
+		echo "Download the installation package.........."
+		wget http://ppa.launchpad.net/hollywood/ppa/ubuntu/pool/main/h/hollywood/hollywood_1.14-0ubuntu1~xenial_all.deb
+		sudo dpkg -i hollywood_1.14-0ubuntu1~xenial_all.deb
+		sudo apt-get -f install
+		which hollywood
+		echo -e "Removing installation package............"
+		rm hollywood_1.14-0ubuntu1~xenial_all.deb
+		echo " "
+		echo -e "Successful installation  \t\033[32;40;1m【√】\033[0m"
+		echo -e "\t---------------------------------------------------------------------------------"
+		echo -e "\t\t[PPA]:(https://launchpad.net/~hollywood/+archive/ubuntu/ppa)"
+		echo -e "\t---------------------------------------------------------------------------------"
+		sleep 2
+	fi

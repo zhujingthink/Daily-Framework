@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+#sogou
+# function sogouinstall(){
+# 	which sogou-diag sogou-qimpanel-watchdog sogou-sys-notify sogou-qimpanel sogou-session fcitx
+# 	if [[ $? -eq 0 ]]; then
+# 		echo -e "sogoupinyin  already installed........\t\033[32;40;1m【√】\033[0m"
+# 	else
+# 		echo -e "Install the GPG key................................."
+# 		sudo cp -r ./x/sogou/keyrings/sogou-archive-keyring.gpg /usr/share/keyrings/
+# 		sudo cp -r ./x/sogou/keyrings/sogou-archive-keyring.gpg /etc/apt/trusted.gpg.d/
+# 		sudo sh -c 'echo "deb http://archive.ubuntukylin.com:10006/ubuntukylin xenial main"' | sudo tee /etc/apt/sources.list.d/sogoupinyin.list
+# 		sudo echo "deb http://mirrors.aliyun.com/debian stretch main" >> /etc/apt/sources.list
+# 		echo 'Update apt sources and install sogoupinyin..................................'
+# 		sudo apt-get update
+# 		sudo apt-get install sogoupinyin -y
+# 		sudo sed -i 's/deb http:\/\/mirrors.aliyun.com\/debian stretch main/ /' /etc/apt/sources.list
+# 		echo " "
+# 		echo -e "Successful installation  \t\033[32;40;1m【√】\033[0m"
+# 		sleep 2
+# 		fi
+# }
+# sogouinstall
+echo "下载安装包....................."
+wget "https://pinyin.sogou.com/linux/download.php?f=linux&bit=64" -O "sogoupinyin_amd64.deb"
+echo "安装搜狗拼音..................."
+sudo dpkg -i sogoupinyin_amd64.deb
+sudo apt -f install
+echo "导入皮肤..........."
+sudo cp -r ./public/sogou/skin/* /usr/share/sogou-qimpanel/skin/
+sogou-qimpanel %U /usr/share/sogou-qimpanel/skin/linux小企鹅.ssf >&/dev/null
+sogou-qimpanel %U /usr/share/sogou-qimpanel/skin/黑色质感.ssf >&/dev/null
+sogou-qimpanel %U /usr/share/sogou-qimpanel/skin/新元素-黑色版③.ssf >&/dev/null
+sogou-qimpanel %U /usr/share/sogou-qimpanel/skin/外星人\ v1.0.ssf >&/dev/null
+
+echo "s删除安装包......................."
+rm sogoupinyin_amd64.deb
+echo "安装完毕...................."
+

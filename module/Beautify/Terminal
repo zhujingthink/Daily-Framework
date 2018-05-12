@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+function config(){
+	sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"powerlevel9k\/powerlevel9k\"\nPOWERLEVEL9K_MODE=\"awesome-fontconfig\"\nPOWERLEVEL9K_TIME_FORMAT=\"%D{%H:%M}\"\nPOWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir dir_writable vcs)\nPOWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)\nPOWERLEVEL9K_SHOW_CHANGESET=true\n/' ~/.zshrc
+}
+
+function terminal(){
+	echo "安装 Oh-My-Zsh.................."
+	if [[ ! -d "~/.oh-my-zsh" ]]; then
+		sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" >&/dev/null
+	fi
+	echo "安装powerlevel9k主题..................."
+	if [[ ! -d "~/.oh-my-zsh/custom/themes/powerlevel9k" ]]; then
+		git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+	fi
+	echo "安装字体..............."
+	sudo apt-get install fonts-powerline -y
+	git clone https://github.com/gabrielelana/awesome-terminal-fonts.git
+	./awesome-terminal-fonts/install.sh
+	rm -rf awesome-terminal-fonts/
+	echo "配置终端..................."
+	config
+	echo "设置默认shell..............."
+	chsh -s $(which zsh)
+}
+which zsh >&/dev/null
+if [[ $? -eq 0 ]]; then
+	sudo apt-get install git -y >&/dev/null
+	terminal
+else
+	sudo apt-get install zsh -y
+	sudo apt-get install git -y >&/dev/null
+	terminal
+fi
+
+
+
+:<<!
+
+function zshconfig(){
+#--------------------------------------------------------------------
+
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE="awesome-fontconfig"
+
+# Prompt settings
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%K{white}%k"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%K{black}%F{green} \uf155%f%F{black} %k\ue0b0%f "
+
+# Separators
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\ue0b0'
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=$'\ue231'
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\ue0b2'
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=$'\ue0b7'
+
+# Context
+DEFAULT_USER=$USER
+POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
+#POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='green'
+POWERLEVEL9K_CONTEXT_TEMPLATE="%F{cyan}%n%f"
+#POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='black'
+
+# Dirs
+#POWERLEVEL9K_DIR_HOME_BACKGROUND='green'
+#POWERLEVEL9K_DIR_HOME_FOREGROUND='black'
+#POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='green'
+#POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='black'
+#POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='yellow'
+#POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+
+# OS segment
+#POWERLEVEL9K_CUSTOM_FEDORA_ICON="echo "
+#POWERLEVEL9K_OS_ICON_BACKGROUND='blue'
+POWERLEVEL9K_LINUX_ICON='%F{red}%B%b %F{white}%f'
+
+# VCS icons
+POWERLEVEL9K_VCS_GIT_ICON=$''
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=$''
+POWERLEVEL9K_VCS_STAGED_ICON=$'\uf055'
+POWERLEVEL9K_VCS_UNSTAGED_ICON=$'\uf421'
+POWERLEVEL9K_VCS_UNTRACKED_ICON=$'\uf00d'
+POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=$'\uf0ab '
+POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=$'\uf0aa '
+
+# VCS colours
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='green'
+
+# VCS CONFIG
+POWERLEVEL9K_SHOW_CHANGESET=false
+
+# Status
+#POWERLEVEL9K_OK_ICON=$'\uf164'
+#POWERLEVEL9K_FAIL_ICON=$'\uf165'
+#POWERLEVEL9K_CARRIAGE_RETURN_ICON=$'\uf165'
+
+# Battery
+POWERLEVEL9K_BATTERY_LOW_FOREGROUND='red'
+POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='yellow'
+POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='green'
+POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='blue'
+
+# Time
+POWERLEVEL9K_TIME_FORMAT="%F{black}\uf017 %D{%I:%M}%f"
+POWERLEVEL9K_TIME_BACKGROUND='green'
+# Prompt elements
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
+
+#--------------------------------------------------------------------
+
+}
+!

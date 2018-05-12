@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+function telegram(){
+	sudo apt-get install telegram-desktop -y
+}
+telegram

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function discord(){
+	echo "下载软件包................."
+	wget https://dl-ptb.discordapp.net/apps/linux/0.0.9/discord-ptb-0.0.9.deb
+	sudo dpkg -i discord-ptb-0.0.9.deb
+	sudo apt -f install
+	echo "删除软件包.............."
+	rm discord-ptb-0.0.9.deb
+	echo "安装完成..................."
+}
+discord

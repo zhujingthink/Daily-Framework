@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+which wps >&/dev/null
+if [[ $? -eq 0 ]]; then
+	echo "已经安装........."
+else
+	echo "下载软件包..................."
+	wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
+	wget http://kdl.cc.ksosoft.com/wps-community/download/fonts/wps-office-fonts_1.0_all.deb
+	wget http://kr.archive.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb
+	sudo dpkg -i wps-office_10.1.0.5707~a21_amd64.deb
+	sudo apt -f install -y
+	echo "安装wps 所需字体...................."
+	sudo dpkg -i libpng12-0_1.2.54-1ubuntu1_amd64.deb && sudo apt -f install -y
+	sudo dpkg -i wps-office-fonts_1.0_all.deb && sudo apt -f install -y
+	sudo cp -r ./public/wps-fonts/* /usr/share/fonts/
+	echo "删除软件包.................."
+	rm wps-office_10.1.0.5707~a21_amd64.deb && rm libpng12-0_1.2.54-1ubuntu1_amd64.deb && rm wps-office-fonts_1.0_all.deb
+	echo "安装完毕.........................."
+fi

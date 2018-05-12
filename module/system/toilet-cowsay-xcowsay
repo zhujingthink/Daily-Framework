@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo apt-get -y install toilet
+sudo apt-get -y install cowsay
+sudo apt-get -y install xcowsay

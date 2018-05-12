@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+sudo apt-get -y install sl
+sudo apt-get -y install yes
+sudo apt-get -y install fortune
+sudo apt-get -y install figlet

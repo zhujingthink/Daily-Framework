@@ -1,15 +1,15 @@
-Linux日常生活，coding
+日常化 Linux
 
-PS:本脚本只用于Debian、Kali、~~Linux Mint~~ ,其他发行版请自行编写。
+PS:不仅仅是安装、后续还有更多功能.................
 
-小ps:各位如果有好建议(或者应用与终端工具)，请联系本人QQ:354096994。
 
-> 使用：
-   1. `git clone https://github.com/YGoldking/DailyLinux.git` 
-   2. `cd DailyLinux/`
-   3. `chmod +x install.sh`
-   4. `./install.sh`
-   5. 更新本脚本运行：`./upgrade.sh`
 
-> wiki:
-  - https://github.com/YGoldking/DailyLinux/wiki/Document
+> 演示：
+   [![asciicast](https://asciinema.org/a/Sy6pgK8xzpOEseGDuKDnSvSHB.png)](https://asciinema.org/a/Sy6pgK8xzpOEseGDuKDnSvSHB)
+
+> 后续开发计划:
+  - 超级proxy工具(全网Proxy技术集一体、一体化工具、实现超全局功能)
+  - 其他工具后续看情况开发..............
+
+> 说明:
+  - 有好的建议请联系QQ：914251253 (朋友的，可通过他联系本人)

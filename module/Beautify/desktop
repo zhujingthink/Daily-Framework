@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+function macosx(){
+
+}
+
+function desktop(){
+	echo -e """
+	$xcyan 1)$xgreen ✔  MacOSX-Sierra
+	$xcyan 2)$xgreen ✔  LSY-Alien-[(外星人主题)开发中......]
+	$xcyan 3)$xgreen ✔  更多......
+	$xcyan 0)$xred ✘  返回 ◀◀
+	"""
+	echo -n -e "${cyan}选择主题: $red"
+	read -e themes
+	case $themes in
+		1 )
+		macosx
+			;;
+		* )
+		echo " "
+			;;
+	esac
+}

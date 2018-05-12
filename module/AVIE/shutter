@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+echo "下载软件包....................."
+wget http://mirrors.ustc.edu.cn/debian/pool/main/s/shutter/shutter_0.94-1_all.deb
+sudo dpkg -i shutter_0.94-1_all.deb
+sudo apt-get -f install
+echo "删除软件包............."
+rm shutter_0.94-1_all.deb
+echo "安装完成................"

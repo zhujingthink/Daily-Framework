@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+function wine-tim(){
+	echo "自己打包的deb没地方存放，各位自行下载吧............"
+	echo "请在 十秒 内复制链接："
+	echo "https://pan.baidu.com/s/1GaqIfiFSvxUzFBSfs8MoSQ"
+	sleep 10
+}
+
+function deepin-tim(){
+	sudo dpkg --add-architecture i386
+	sudo cp -r ./public/deepin-key/etc/apt/sources.list.d/deepin.list /etc/apt/sources.list.d/
+	sudo cp -r ./public/deepin-key/etc/apt/trusted.gpg.d/deepin-archive-keyring.gpg /etc/apt/trusted.gpg.d/
+	sudo cp -r ./public/deepin-key/etc/apt/trusted.gpg.d/deepin-pools-keyring.gpg /etc/apt/trusted.gpg.d/
+	sudo cp -r ./public/deepin-key/usr/share/keyrings/deepin-archive-keyring.gpg /usr/share/keyrings/
+	sudo apt-get update && sudo apt-get install deepin.com.qq.office -y
+	sudo rm -rf /etc/apt/sources.list.d/deepin.list
+	sudo rm -rf /etc/apt/trusted.gpg.d/deepin-archive-keyring.gpg
+	sudo rm -rf /etc/apt/trusted.gpg.d/deepin-pools-keyring.gpg
+	sudo rm -rf /usr/share/keyrings/deepin-archive-keyring.gpg
+	echo "安装完成...................."
+}
+
+function tim(){
+	echo -e """
+	$xcyan 1)$xgreen ✔  TIM(wine)	
+	$xcyan 2)$xgreen ✔  deepin-TIM	
+	$xcyan 3)$xgreen ✔  待添加...	
+	$xcyan 0)$xred ✘  返回 ◀◀
+	"""
+	echo -n -e "${cyan}请选择版本 *) ：$red"
+	read -e qqinstall
+	case $qqinstall in
+		1 )
+		wine-tim
+			;;
+		2 )
+		deepin-tim
+			;;
+		* )
+		echo " "
+			;;
+	esac
+}
+tim

@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+which teamviewer >&/dev/null
+if [[ $? -eq 0 ]]; then
+	echo "已安装............."
+else
+	echo "下载安装包............"
+	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+	sudo dpkg -i teamviewer_amd64.deb
+	sudo apt -f install -y
+	echo "删除安装包..................."
+	rm teamviewer_amd64.deb
+	echo "安装完成........................"
+fi
+
+
+
+
+
+
+#old old old
+# echo "Check if it is installed........."
+# which teamviewer
+# if [[ $? -eq 0 ]]; then
+# 	echo -e "TeamViewer  already installed........\t\033[32;40;1m【√】\033[0m"
+# else
+# 	echo -e "Install the GPG key................................."
+# 	wget -O - https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo apt-key add -
+# 	sudo sh -c 'echo "deb http://linux.teamviewer.com/deb stable main"' | sudo tee /etc/apt/sources.list.d/teamviewer.list
+# 	sudo dpkg --add-architecture i386
+# 	sudo apt-get update
+# 	sudo apt-get install teamviewer -y
+# 	echo " "
+# 	echo -e "Successful installation  \t\033[32;40;1m【√】\033[0m"
+# fi

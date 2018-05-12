@@ -1,0 +1,176 @@
+#!/usr/bin/env bash
+
+#Firefox Quantum
+#Firefox Beta
+#Firefox Devedition
+#Firefox Nightly
+
+function Quantum(){
+	echo "下载安装包................"
+	wget "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=zh-CN" -O "Firefox-Quantum.tar.bz2"
+	tar jxvf Firefox-Quantum.tar.bz2
+	mv firefox firefox-quantum
+	sudo mv firefox-quantum /opt/
+	sudo ln -s /opt/firefox-quantum/firefox /usr/bin/firefox-quantum
+	echo "创建桌面文件................"
+cat>firefox-quantum.desktop<<EOF
+[Desktop Entry]
+Name=Firefox Quantum
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+X-GNOME-FullName=Firefox Quantum Web Browser
+Exec=/opt/firefox-quantum/firefox %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/opt/firefox-quantum/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Firefox-Quantum
+StartupNotify=true
+EOF
+	sudo mv firefox-quantum.desktop /usr/share/applications/
+	echo "删除软件包.................."
+	rm Firefox-Quantum.tar.bz2
+	echo "安装完成........................"
+}
+
+function Beta(){
+	wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=zh-CN" -O "Firefox-Beta.tar.bz2"
+	tar jxvf Firefox-Beta.tar.bz2
+	mv firefox firefox-beta
+	sudo mv firefox-beta /opt/
+	sudo ln -s /opt/firefox-beta/firefox /usr/bin/firefox-beta
+	echo "创建桌面文件................"
+cat>firefox-beta.desktop<<EOF
+[Desktop Entry]
+Name=Firefox Beta
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+X-GNOME-FullName=Firefox Beta Web Browser
+Exec=/opt/firefox-beta/firefox %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/opt/firefox-beta/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Firefox-Beta
+StartupNotify=true
+EOF
+	sudo mv firefox-beta.desktop /usr/share/applications/
+	echo "删除软件包.................."
+	rm Firefox-Beta.tar.bz2
+	echo "安装完成........................"
+}
+
+function Devedition(){
+	wget "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=zh-CN" -O "Firefox-Devedition.tar.bz2"
+	tar jxvf Firefox-Devedition.tar.bz2
+	mv firefox firefox-devedition
+	sudo mv firefox-devedition /opt/
+	sudo ln -s /opt/firefox-devedition/firefox /usr/bin/firefox-devedition
+	echo "创建桌面文件................"
+cat>firefox-devedition.desktop<<EOF
+[Desktop Entry]
+Name=Firefox Devedition
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+X-GNOME-FullName=Firefox Devedition Web Browser
+Exec=/opt/firefox-devedition/firefox %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/opt/firefox-devedition/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Firefox-Devedition
+StartupNotify=true
+EOF
+	sudo mv firefox-devedition.desktop /usr/share/applications/
+	echo "删除软件包.................."
+	rm Firefox-Devedition.tar.bz2
+	echo "安装完成........................"
+}
+
+function Nightly(){
+	wget "https://download.mozilla.org/?product=firefox-nightly-latest-l10n-ssl&os=linux64&lang=zh-CN" -O "Firefox-Nightly.tar.bz2"
+	tar jxvf Firefox-Nightly.tar.bz2
+	mv firefox firefox-nightly
+	sudo mv firefox-nightly /opt/
+	sudo ln -s /opt/firefox-nightly/firefox /usr/bin/firefox-nightly
+	echo "创建桌面文件................"
+cat>firefox-nightly.desktop<<EOF
+[Desktop Entry]
+Name=Firefox Nightly
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+X-GNOME-FullName=Firefox Nightly Web Browser
+Exec=/opt/firefox-nightly/firefox %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/opt/firefox-nightly/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Firefox-Nightly
+StartupNotify=true
+EOF
+	sudo mv firefox-nightly.desktop /usr/share/applications/
+	echo "删除软件包.................."
+	rm Firefox-Nightly.tar.bz2
+	echo "安装完成........................"
+}
+
+function Firefox(){
+#Firefox Quantum
+#Firefox Beta
+#Firefox Devedition
+#Firefox Nightly
+	echo -e """
+ 	${xcyan}1)${xgreen} ✔ Firefox Quantum(最新稳定版)    ${xcyan}2)${xgreen} ✔ Firefox Beta(预览版)
+ 	${xcyan}3)${xgreen} ✔ Firefox Devedition(开发者)    ${xcyan}4)${xgreen} ✔ Firefox Nightly(下一代体验版)
+	${xcyan}0)$xred ✘  返回 ◀◀
+	"""
+	echo -n -e "${cyan}请选择版本 *) :$red"
+	read -e firerfox
+	case $firefox in
+		1 )
+		which firefox-quantum >&/dev/null
+		if [[ $? -eq 0 ]]; then
+			echo "已安装..................."
+		else
+			Quantum
+		fi
+			;;
+		2 )
+		which firefox-beta >&/dev/null
+		if [[ $? -eq 0 ]]; then
+			echo "已安装..................."
+		else
+			Beta
+		fi
+			;;
+		3 )
+		which firefox-devedition >&/dev/null
+		if [[ $? -eq 0 ]]; then
+			echo "已安装..................."
+		else
+			Devedition
+		fi
+			;;
+		4 )
+		which firefox-nightly >&/dev/null
+		if [[ $? -eq 0 ]]; then
+			echo "已安装..................."
+		else
+			Nightly
+		fi
+			;;
+		* )
+		# Firefox
+		echo " "
+			;;
+	esac
+}
+Firefox

@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+#修复SublimeText 2/3的CJK输入法问题
+function inputx(){
+ 	which fcitx
+ 	if [[ $? -eq 0 ]]; then
+ 		read -p "是否修复sublime的输入法问题 ? [Y/n]:" Wfcitx
+	 	case $Wfcitx in
+	 		Y|y)
+	 		sudo cp -r ./public/subl-src/libsublime-imfix.so /opt/sublime_text/
+			#修改/usr/bin/subl
+			sudo sed -i 's/exec \/opt\/sublime_text\/sublime_text \"$@\"/LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text \"$@\"/' /usr/bin/subl
+			#修改/usr/share/applications/sublime_text.desktop
+			sudo sed -i 's/Exec=\/opt\/sublime_text\/sublime_text %F/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text %F\"/' /usr/share/applications/sublime_text.desktop
+			sudo sed -i 's/Exec=\/opt\/sublime_text\/sublime_text -n/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text -n\"/' /usr/share/applications/sublime_text.desktop
+			sudo sed -i 's/Exec=\/opt\/sublime_text\/sublime_text --command new_file/Exec=bash -c \"LD_PRELOAD=\/opt\/sublime_text\/libsublime-imfix.so exec \/opt\/sublime_text\/sublime_text --command new_file\"/' /usr/share/applications/sublime_text.desktop
+	      	echo -e "Repair successfully  \t\033[32;40;1m【√】\033[0m"
+	 		;;
+	 		N|n)
+	 		#exit
+	 		P_d
+	 		;;
+	 	esac
+ 	else
+ 		echo " "
+ 		sudo apt-get install fcitx -y
+ 		echo " "
+ 		inputx
+ 	fi
+}
+
+function ikey(){
+echo "正在激活sublime........"
+subl
+sleep 2
+killall sublime_text
+
+cat >> ~/.config/sublime-text-3/Local/License.sublime_license << EOF
+—– BEGIN LICENSE —– 
+TwitterInc 
+200 User License 
+EA7E-890007 
+1D77F72E 390CDD93 4DCBA022 FAF60790 
+61AA12C0 A37081C5 D0316412 4584D136 
+94D7F7D4 95BC8C1C 527DA828 560BB037 
+D1EDDD8C AE7B379F 50C9D69D B35179EF 
+2FE898C4 8E4277A8 555CE714 E1FB0E43 
+D5D52613 C3D12E98 BC49967F 7652EED2 
+9D2D2E61 67610860 6D338B72 5CF95C69 
+E36B85CC 84991F19 7575D828 470A92AB 
+—— END LICENSE ——
+EOF
+echo "sublime 激活成功     \033[32;40;1m【√】\033[0m"
+}
+
+function sublinstall(){
+	sudo apt-get install apt-transport-https -y
+	echo -e "Install the GPG key................................."
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+	echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+	echo 'Update apt sources and install Sublime Text..................................'
+	sudo apt-get update && sudo apt-get install sublime-text -y
+	ikey
+	inputx
+	echo -e "Successful installation  \t\033[32;40;1m【√】\033[0m"
+}
+
+echo "Check if it is installed.............................."
+ which subl
+ if [[ $? -eq 0 ]]; then
+ 	echo -e "sublime-text  already installed........\t\033[32;40;1m【√】\033[0m"
+ 	inputx
+ else
+ 	sublinstall
+ fi
