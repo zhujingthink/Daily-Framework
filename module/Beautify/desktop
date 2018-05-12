@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 function macosx(){
-
+	wget https://github.com/YGoldking/Daily-Framework/releases/download/v1.0.0/MacOSX-Sierra-Gtk_20180509.deb
+	sudo dokg -i MacOSX-Sierra-Gtk_20180509.deb
+	sudo apt -f install -y 
+	echo "安装完成................."
 }
 
 function desktop(){
