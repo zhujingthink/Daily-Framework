@@ -13,7 +13,8 @@ function deepin-tim(){
 	sudo cp -r ./public/deepin-key/etc/apt/trusted.gpg.d/deepin-archive-keyring.gpg /etc/apt/trusted.gpg.d/
 	sudo cp -r ./public/deepin-key/etc/apt/trusted.gpg.d/deepin-pools-keyring.gpg /etc/apt/trusted.gpg.d/
 	sudo cp -r ./public/deepin-key/usr/share/keyrings/deepin-archive-keyring.gpg /usr/share/keyrings/
-	sudo apt-get update && sudo apt-get install deepin.com.qq.office -y
+	sudo apt-get update
+	sudo apt-get install deepin.com.qq.office -y
 	sudo rm -rf /etc/apt/sources.list.d/deepin.list
 	sudo rm -rf /etc/apt/trusted.gpg.d/deepin-archive-keyring.gpg
 	sudo rm -rf /etc/apt/trusted.gpg.d/deepin-pools-keyring.gpg
