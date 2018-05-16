@@ -129,7 +129,7 @@ function P_d(){
 		sleep 3 && 	P_d
 			;;
 		7 )
-		. module/P-development/Navicat && echo "Navicat .待更新"
+		. module/P-development/Navicat
 		sleep 3 && 	P_d
 			;;
 		8 )
