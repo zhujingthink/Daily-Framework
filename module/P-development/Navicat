@@ -1,0 +1,9 @@
+#!/us/bin/env bash
+
+function navicat(){
+	echo "自己打包的deb没地方存放，各位自行下载吧............"
+	echo "请在 十秒 内复制链接："
+	echo "https://pan.baidu.com/s/1iNhS3JdCUkxNetcQSWjFuA"
+	sleep 10
+}
+navicat
