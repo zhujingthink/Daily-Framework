@@ -228,6 +228,7 @@ function A-V_I_E(){
 	$xcyan 3)$xgreen ✔  网易云音乐(多版本)	$xcyan 8)$xgreen ✔  asciinema
 	$xcyan 4)$xgreen ✔  Gimp			$xcyan 9)$xgreen ✔  kazam	
 	$xcyan 5)$xgreen ✔  gnome-screenshot	       $xcyan 10)$xgreen ✔  OBS
+	$xcyan 11)$xgreen ✔  inkscape
 	$xcyan 0)$xred ✘  返回 ◀◀
 	"""
 	echo -n -e "${cyan}module/A-V_I_E > $red"
@@ -271,6 +272,10 @@ function A-V_I_E(){
 			;;
 		10 )
 		. module/AVIE/OBS
+		sleep 3 && A-V_I_E
+			;;
+		11 )
+		. module/AVIE/inkscape
 		sleep 3 && A-V_I_E
 			;;
 		0 )
