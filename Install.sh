@@ -159,7 +159,7 @@ function Network(){
 	$xcyan 3)$xgreen ✔  tor-browser		$xcyan 9)$xgreen ✔  微信(多版本)
 	$xcyan 4)$xgreen ✔  searx			$xcyan 10)$xgreen ✔  Telegram
 	$xcyan 5)$xgreen ✔  magic-wormhole	       $xcyan 11)$xgreen ✔  discord
-	$xcyan 6)$xgreen ✔  TeamViewer	       $xcyan 12)$xgreen ✔  更多......
+	$xcyan 6)$xgreen ✔  TeamViewer	       $xcyan 12)$xgreen ✔  aria2
 	$xcyan 0)$xred ✘  返回 ◀◀
 	"""
 	echo -n -e "${cyan}module/Network > $red"
@@ -207,6 +207,10 @@ function Network(){
 			;;
 		11)
 		. module/Network/discord
+		sleep 3 && Network
+			;;
+		12)
+		. module/Network/aria2
 		sleep 3 && Network
 			;;
 		0 )
